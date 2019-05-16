@@ -1,0 +1,12 @@
+<!--components/changeBg/index.wxml-->
+<view class="container">
+  <view class="title">更换背景</view>
+  <view class="imgs">
+  <view class="img-list">
+    <image class="img-item" mode="scaleToFill" wx:for="{{imgLists}}" wx:key="{{index}}" src="../../images/{{item}}.jpg" data-imgs="{{item}}" bindtap="changeBg"></image>
+  </view>
+  </view>
+  <view class="arrow" bindtap="hideChoose"><image src="../../images/up-arrow.png" mode="scaleToFill"></image></view>
+  <image src="" alt="" class="bg" src="../../images/{{img}}.jpg" mode="scaleToFill"></image>
+
+</view>
