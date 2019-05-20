@@ -7,7 +7,9 @@
 } */
 page {
   -webkit-font-smoothing: antialiased;
-  font-family: "PingHei","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
+  font-family: 'PingHei', 'Helvetica Neue', 'Helvetica', 'Arial', 'Verdana',
+    'sans-serif';
+  color: #fff;
 }
 .container {
   width: 100%;
@@ -18,3 +20,4 @@ page {
   padding: 0 20rpx;
   align-items: center;
 }
+

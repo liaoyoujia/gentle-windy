@@ -19,10 +19,37 @@
           <text>广德</text>
           <image src="../../images/down.png" mode="scaleToFill"></image>
         </view>
-        <view class="time">05-16 17:21 更新</view>
+        <view class="time">{{time}} 更新</view>
        </view>
-       <view class="lament">我走过山时,山不说话。我走过海时,还不说话。</view>
-       <view class="temperature">23 </text></view>
+       <view class="lament">我走过山时,山不说话。我走过海时,海不说话。</view>
+       <view class="temperature">{{temp}}<text class="sign">℃</text></view>
+       <view class="weather-description">
+          <view class="weather">{{weather}}</view>
+          <text class="visibility" decode="{{true}}">能见度&nbsp;{{visibility}}</text>
+       </view>
+       <view class="three-days">
+         <view class="three-title">3天预报</view>
+         <view class="three-list">
+           <view class="three-item">
+             <view>2019-05-17</view>
+             <view>27~20℃</view>
+             <view>阴<image src="../../images/arrow.png" mode="scaleToFill"></image></view>
+             <view>东北风1-2级</view>
+           </view>
+           <view class="three-item">
+             <view>2019-05-17</view>
+             <view>27~20℃</view>
+             <view>阴 <image src="../../images/arrow.png" mode="scaleToFill"></image></view>
+             <view>东北风1-2级</view>
+           </view>
+           <view class="three-item">
+             <view>2019-05-17</view>
+             <view>27~20℃</view>
+             <view>阴 <image src="../../images/arrow.png" mode="scaleToFill"></image></view>
+             <view>东北风1-2级</view>
+           </view>
+         </view>
+       </view>
      </view>
 
 
