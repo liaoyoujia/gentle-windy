@@ -22,32 +22,52 @@
         <view class="time">{{time}} 更新</view>
        </view>
        <view class="lament">我走过山时,山不说话。我走过海时,海不说话。</view>
-       <view class="temperature">{{temp}}<text class="sign">℃</text></view>
+       <view class="temperature">{{nowCityData.tmp}}<text class="sign">℃</text></view>
        <view class="weather-description">
-          <view class="weather">{{weather}}</view>
-          <text class="visibility" decode="{{true}}">能见度&nbsp;{{visibility}}</text>
+          <view class="weather">{{nowCityData.cond_txt}}</view>
+          <text class="visibility" decode="{{true}}">能见度&nbsp;{{nowCityData.vis}}</text>
        </view>
-       <view class="three-days">
+       <view class="three-days" wx:if="{{threeDayData.length}}">
          <view class="three-title">3天预报</view>
          <view class="three-list">
-           <view class="three-item">
-             <view>2019-05-17</view>
-             <view>27~20℃</view>
-             <view>阴<image src="../../images/arrow.png" mode="scaleToFill"></image></view>
-             <view>东北风1-2级</view>
+           <view class="three-item" wx:for="{{threeDayData}}" wx:key="{{index}}">
+             <view>{{item.date}}</view>
+             <view>{{item.tmp_max}}~{{item.tmp_min}}℃</view>
+             <view class="item-wheather">{{item.cond_txt_d}}<image src="{{weatherIconUrl}}{{item.cond_code_d}}.png" mode="scaleToFill"></image></view>
+             <view>{{item.wind_dir}}{{item.wind_sc}}级</view>
            </view>
-           <view class="three-item">
-             <view>2019-05-17</view>
-             <view>27~20℃</view>
-             <view>阴 <image src="../../images/arrow.png" mode="scaleToFill"></image></view>
-             <view>东北风1-2级</view>
-           </view>
-           <view class="three-item">
-             <view>2019-05-17</view>
-             <view>27~20℃</view>
-             <view>阴 <image src="../../images/arrow.png" mode="scaleToFill"></image></view>
-             <view>东北风1-2级</view>
-           </view>
+         </view>
+       </view>
+       <view class="windy-table">
+        <view class="windy-tr">
+          <view class="windy-td" wx:for="{{defaultData.key}}" wx:key="index">
+            <view class="nowData-td">{{defaultData.val[item]}}</view>
+            <view>{{nowCityData[item]}}</view>
+          </view>
+        </view>
+       </view>
+       <view class="hour-forcast">
+         <view class="hour-forcast-title">24小时逐3小时预报</view>
+         <view class="hour-forcast-body">
+            <swiper
+            indicator-dots="{{indicatorDots}}"
+            autoplay="{{autoplay}}"
+            next-margin="24px"
+          >
+            <block wx:for="{{imgUrls}}">
+              <swiper-item class="hour-forcast-item">
+                    <view class="windy-tr">
+                        <view class="windy-td" wx:for="{{defaultData.key}}" wx:key="index">
+                          <view class="nowData-td">{{defaultData.val[item]}}</view>
+                          <view>{{nowCityData[item]}}</view>
+                        </view>
+                      </view>
+              </swiper-item>
+            </block>
+          </swiper>
+         </view>
+         <view class="hour-forcast-bottom">
+           2019-05-20 22:00
          </view>
        </view>
      </view>

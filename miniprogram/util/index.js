@@ -1,4 +1,4 @@
-let formatDate = (nDate, date) => {
+const formatDate = (nDate, date) => {
   if (isNaN(nDate.getTime())) {
     // 不是时间格式
     return '--'
@@ -23,3 +23,21 @@ let formatDate = (nDate, date) => {
   }
   return date
 }
+
+
+const meregeData = (arr, params) => {
+  let a = []
+  arr.forEach((item) => {
+    let b = {}
+    for (let i in item) {
+      for (let j = 0; j < params.length; j++) {
+        if (i === params[j]) {
+          b[i] = item[i]
+        }
+      }
+    }
+    a.push(b)
+  })
+  return a
+}
+export { formatDate, meregeData }

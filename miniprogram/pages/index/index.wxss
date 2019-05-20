@@ -1,4 +1,5 @@
 /* miniprogram/pages/index/index.wxss */
+
 .mainBg {
   position: fixed;
   z-index: -1;
@@ -13,6 +14,7 @@
   overflow-y: auto;
   width: 100%;
   height: 100vh;
+  padding-bottom: 30rpx;
 }
 
 .person-info {
@@ -108,35 +110,91 @@
   display: flex;
   font-size: 24rpx;
   flex-direction: column;
-  background: rgba(0,0,0,.4);
+  background: rgba(0, 0, 0, 0.4);
   margin-top: 60rpx;
   justify-content: flex-start;
   align-items: center;
   text-align: center;
-
 }
-.three-title{
-  width:100%;
-  padding:12rpx 0 18rpx;
+.three-title {
+  width: 100%;
+  padding: 12rpx 0 18rpx;
   box-sizing: border-box;
-  border-bottom: 1px solid #e1e1e1;
+  border-bottom: 1px solid #b5b5b5;
 }
-.three-list{
-  width:100%;
+.three-list {
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-content: center;
-
 }
-.three-item{
-    height: 220rpx;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-
+.three-item {
+  height: 220rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
-.three-item image{
-  width: 18rpx;
-  height:18rpx;
+.three-item image {
+  width: 36rpx;
+  height: 36rpx;
+}
+.item-wheather {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.windy-table {
+  margin-top: 20rpx;
+  font-size: 24rpx;
+}
+.windy-tr {
+  width: 100%;
+  overflow: hidden;
+}
+.windy-td {
+  float: left;
+  text-align: center;
+  padding: 12rpx 0;
+  width: 25%;
+  height: 100rpx;
+  box-sizing: border-box;
+  border: 1px solid #b5b5b5;
+  margin-left: -1px;
+  background: rgba(0, 0, 0, 0.4);
+  margin-top: -1px;
+}
+.nowData-td {
+  margin-bottom: 12rpx;
+}
+.hour-forcast {
+  width: 100%;
+  font-size: 24rpx;
+  color: #fff;
+  margin-top: 20rpx;
+  /* padding:12rpx 10rpx; */
+  background: rgba(0, 0, 0, 0.4);
+}
+.hour-forcast-title {
+  text-align: center;
+  padding: 12rpx 0;
+  border-bottom: 1px solid #b5b5b5;
+}
+.hour-forcast-body {
+  width: 100%;
+  margin-top: 24rpx;
+}
+.hour-forcast-item{
+  border-radius: 12rpx;
+}
+.hour-forcast-item + .hour-forcast-item{
+  margin-left: 20rpx !important;
+}
+.hour-forcast-item  .windy-td{
+  background-color: #666 !important;
+}
+.hour-forcast-bottom{
+  text-align: center;
+  padding: 12rpx 0;
+
 }
