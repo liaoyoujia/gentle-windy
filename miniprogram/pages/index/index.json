@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "v-change":"../../components/changeBg/index"
+    "v-change":"../../components/changeBg/index",
+    "v-search":"../../components/search/index"
   }
 }

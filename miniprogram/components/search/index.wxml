@@ -1,0 +1,4 @@
+<!--components/search/index.wxml-->
+<view class="search">
+  <view class="search-box"><image src="../../images/search_grey.png" mode="widthFix"></image><input type="text" placeholder="输入城市名，查询那个城市的天气信息!" placeholder-class="defaultText" class="search-input"/></view>
+</view>

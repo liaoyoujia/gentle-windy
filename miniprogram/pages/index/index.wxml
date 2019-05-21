@@ -2,6 +2,7 @@
 <view  wx:if="{{!isShowChoose}}" class="container">
      <image src="../../images/{{img}}.jpg" mode="scaleToFill" class="mainBg"></image>
      <view class="main">
+       <v-search></v-search>
        <view class="person-info">
          <view class="avatar">
              <open-data  type="userAvatarUrl"></open-data>
@@ -16,7 +17,7 @@
        </view>
        <view class="address">
         <view class="name">
-          <text>广德</text>
+          <text>{{nowArea}}</text>
           <image src="../../images/down.png" mode="scaleToFill"></image>
         </view>
         <view class="time">{{time}} 更新</view>
@@ -53,29 +54,34 @@
             indicator-dots="{{indicatorDots}}"
             autoplay="{{autoplay}}"
             next-margin="24px"
+            class="hour-swiper"
           >
-            <block wx:for="{{imgUrls}}">
+            <block wx:for="{{imgUrls}}" wx:key="{{index}}">
               <swiper-item class="hour-forcast-item">
                     <view class="windy-tr">
                         <view class="windy-td" wx:for="{{defaultData.key}}" wx:key="index">
                           <view class="nowData-td">{{defaultData.val[item]}}</view>
                           <view>{{nowCityData[item]}}</view>
                         </view>
+                        </view>
+                      <view class="hour-forcast-bottom">
+                        2019-05-20 22:00
                       </view>
               </swiper-item>
             </block>
           </swiper>
          </view>
-         <view class="hour-forcast-bottom">
-           2019-05-20 22:00
+       </view>
+       <view class="life-style">
+         <view class="life-item" wx:for="{{lifeData}}" wx:key="{{index}}">
+           <view class="life-icon"><image src="../../images/lifestyle_{{item.type}}.png" mode="widthFix"></image></view>
+           <view>
+             <view class="weather-cozy">舒适度指数 {{item.brf}}</view>
+             <view class="weather-descr">{{item.txt}}</view>
+           </view>
          </view>
        </view>
      </view>
-
-
-
-
-
-
+     <view class="creator">开发者.liaoyoujia</view>
 </view>
 <v-change bindhideChoose="hideChoosePage" wx:if="{{isShowChoose}}"></v-change>

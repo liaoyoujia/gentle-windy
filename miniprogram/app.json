@@ -9,5 +9,10 @@
     "navigationBarBackgroundColor": "#004a89",
     "navigationBarTitleText": "Switer Wheather",
     "navigationBarTextStyle": "white"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "定位以获取当前位置天气信息"
+    }
   }
 }

@@ -1,0 +1,25 @@
+/* components/search/index.wxss */
+.search{
+
+}
+.search-box{
+  width: 100%;
+  display: flex;
+  padding-left: 20rpx;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 8rpx;
+}
+image{
+  width: 30rpx;
+}
+.defaultText{
+  font-size: 28rpx;
+  color: #fff;
+  width: 100%;
+}
+.search-input{
+  width: 86%;
+  margin-left: 16rpx;
+}

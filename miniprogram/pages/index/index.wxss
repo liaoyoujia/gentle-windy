@@ -20,7 +20,7 @@
 .person-info {
   display: flex;
   justify-content: flex-start;
-  margin-top: 100rpx;
+  margin-top: 30rpx;
   align-items: center;
 }
 .avatar {
@@ -172,7 +172,6 @@
   font-size: 24rpx;
   color: #fff;
   margin-top: 20rpx;
-  /* padding:12rpx 10rpx; */
   background: rgba(0, 0, 0, 0.4);
 }
 .hour-forcast-title {
@@ -196,5 +195,45 @@
 .hour-forcast-bottom{
   text-align: center;
   padding: 12rpx 0;
+  width: calc(100% - 4px);
+  color: #fff;
+}
+.hour-swiper{
+  height: 350rpx;
+}
+.life-style{
+  background: rgba(0, 0, 0, 0.4);
+  margin-top: 20rpx;
+}
+.life-item{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 
+}
+.life-item + .life-item{
+  border-top: 1px solid #b5b5b5;
+}
+.life-icon{
+  width: 160rpx;
+  padding:24rpx;
+}
+.life-icon image{
+  display: block;
+  width: 100%;
+}
+.weather-cozy{
+font-size: 32rpx;
+line-height: 42rpx;
+
+}
+.weather-descr{
+  margin-top: 10rpx;
+font-size: 24rpx;
+line-height: 34rpx;
+}
+.creator{
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 26rpx;
 }
