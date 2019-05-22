@@ -46,17 +46,11 @@ Page({
         cloud: '云量',
       }
     },
-    nowHourData:[],
+    nowHourData: [],
     lifeData: [],
     weatherIconUrl: globalData.weatherIconUrl,
-    imgUrls: [
-      'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
-      'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
-      'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
-    ],
     indicatorDots: false,
-    autoplay: false,
-
+    searchValue: ''
   },
 
   /**
@@ -108,9 +102,9 @@ Page({
   },
   getHourData (location) {
     http.request({ url: globalData.hourlyUrl, data: { location, key: globalData.key } }).then((res) => {
-      if(res.data.HeWeather6[0].hourly&&res.data.HeWeather6[0].hourly.length){
+      if (res.data.HeWeather6[0].hourly && res.data.HeWeather6[0].hourly.length) {
         this.setData({
-          nowHourData:res.data.HeWeather6[0].hourly
+          nowHourData: res.data.HeWeather6[0].hourly
         })
       };
     })
@@ -123,5 +117,27 @@ Page({
         })
       };
     })
+  },
+  searchCity (e) {
+    if (e.detail.value) {
+      this.changeCity(e.detail.value,this.clearInput)
+    }
+  },
+  clearInput(){
+    this.setData({
+      searchValue:''
+    })
+  },
+  changeCity (value, fn) {
+    if (value === '520' || value === '521' || value === '520hcy' || value === '521hcy') {
+      
+    }
+    if (value) {
+      this.getMainWeather(value)
+      this.getThreeDays(value)
+      this.getHourData(value)
+      this.getLifeData(value)
+    }
+    fn()
   }
 })

@@ -11,6 +11,15 @@ export default class Http {
         },
         success (res) {
           if (res.statusCode === 200) {
+            if(res.data.HeWeather6[0].status!=='ok'){
+              wx.showToast({
+                title: '地址不存在',
+                icon: 'none',
+                duration: 2000
+              })
+              return false
+            }
+
             resolve(res)
           } else {
             wx.showToast({

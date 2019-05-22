@@ -1,10 +1,11 @@
-// components/search/index.js
+// components/heart/index.js
 Component({
   /**
    * 组件的属性列表
    */
-  externalClasses: ['c-search'],
   properties: {
+    // width:'',
+    // height:''
 
   },
 

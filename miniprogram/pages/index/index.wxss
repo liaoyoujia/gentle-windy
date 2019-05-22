@@ -250,9 +250,34 @@ scroll-view{
   padding:0 30rpx;
   box-sizing: border-box;
 }
+/* 搜索框 */
 .search{
   position: fixed;
   top:20rpx;
   left: 50rpx;
   z-index: 1000;
 }
+.search-box{
+  width: 100%;
+  display: flex;
+  padding-left: 20rpx;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 8rpx;
+}
+image{
+  width: 30rpx;
+}
+.defaultText{
+  font-size: 24rpx;
+  width: 400rpx;
+  color: #fff;
+  width: 100%;
+}
+.search-input{
+  width: 500rpx;
+  margin-left: 16rpx;
+  font-size: 28rpx;
+}
+

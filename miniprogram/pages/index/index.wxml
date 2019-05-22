@@ -2,7 +2,9 @@
 <view  wx:if="{{!isShowChoose}}" class="container">
      <image src="../../images/{{img}}.jpg" mode="scaleToFill" class="mainBg"></image>
      <view class="main">
-       <v-search c-search="search"></v-search>
+       <view class="search">
+        <view class="search-box"><image src="../../images/search_grey.png" mode="widthFix"></image><input type="text" placeholder="输入城市名，查询那个城市的天气信息!" bindconfirm="searchCity" placeholder-class="defaultText"  value="{{searchValue}}"class="search-input"/></view>
+       </view>
        <view class="person-info">
          <view class="avatar">
              <open-data  type="userAvatarUrl"></open-data>
@@ -55,7 +57,6 @@
          <view class="hour-forcast-body">
             <swiper
             indicator-dots="{{indicatorDots}}"
-            autoplay="{{autoplay}}"
             next-margin="24px"
             class="hour-swiper"
           >
