@@ -28,11 +28,25 @@ Page({
         cloud: '云量',
       },
     },
-    nowArea:'定位中',
+    nowArea: '定位中',
     nowCityData: {},
     defaultHourData: {
-
+      key: ['tmp', 'cond_txt', 'hum', 'dew', 'pop', 'wind_dir', 'wind_deg', 'wind_sc', 'wind_spd', 'pres', 'cloud', ''],
+      val: {
+        tmp: '温度(℃)',
+        cond_txt: '天气',
+        hum: '相对湿度(%)',
+        dew: '露点温度(℃)',
+        pop: '降水概率',
+        wind_dir: '风向',
+        wind_deg: '风向角度(deg)',
+        wind_sc: '风力(级)',
+        wind_spd: '风速(mk/h)',
+        pres: '气压(mb)',
+        cloud: '云量',
+      }
     },
+    nowHourData:[],
     lifeData: [],
     weatherIconUrl: globalData.weatherIconUrl,
     imgUrls: [
@@ -74,7 +88,7 @@ Page({
     http.request({ url: globalData.nowUrl, data: { location, key: globalData.key } }).then((res) => {
       if (res.data.HeWeather6[0].now) {
         let time = res.data.HeWeather6[0].update.loc.slice(5)
-        let nowArea=res.data.HeWeather6[0].basic.location
+        let nowArea = res.data.HeWeather6[0].basic.location
         this.setData({
           nowCityData: res.data.HeWeather6[0].now,
           time,
@@ -94,7 +108,11 @@ Page({
   },
   getHourData (location) {
     http.request({ url: globalData.hourlyUrl, data: { location, key: globalData.key } }).then((res) => {
-      console.log(res, 31231);
+      if(res.data.HeWeather6[0].hourly&&res.data.HeWeather6[0].hourly.length){
+        this.setData({
+          nowHourData:res.data.HeWeather6[0].hourly
+        })
+      };
     })
   },
   getLifeData (location) {

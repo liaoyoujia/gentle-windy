@@ -15,11 +15,13 @@ image{
   width: 30rpx;
 }
 .defaultText{
-  font-size: 28rpx;
+  font-size: 24rpx;
+  width: 400rpx;
   color: #fff;
   width: 100%;
 }
 .search-input{
-  width: 86%;
+  width: 500rpx;
   margin-left: 16rpx;
+  font-size: 28rpx;
 }

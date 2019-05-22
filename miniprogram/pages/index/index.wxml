@@ -2,7 +2,7 @@
 <view  wx:if="{{!isShowChoose}}" class="container">
      <image src="../../images/{{img}}.jpg" mode="scaleToFill" class="mainBg"></image>
      <view class="main">
-       <v-search></v-search>
+       <v-search c-search="search"></v-search>
        <view class="person-info">
          <view class="avatar">
              <open-data  type="userAvatarUrl"></open-data>
@@ -13,7 +13,6 @@
          <view class="icon-triangle">
            <image src="../../images/down.png" mode="scaleToFill" bindtap="changeBg"></image>
          </view>
-
        </view>
        <view class="address">
         <view class="name">
@@ -29,15 +28,19 @@
           <text class="visibility" decode="{{true}}">能见度&nbsp;{{nowCityData.vis}}</text>
        </view>
        <view class="three-days" wx:if="{{threeDayData.length}}">
-         <view class="three-title">3天预报</view>
-         <view class="three-list">
-           <view class="three-item" wx:for="{{threeDayData}}" wx:key="{{index}}">
-             <view>{{item.date}}</view>
-             <view>{{item.tmp_max}}~{{item.tmp_min}}℃</view>
-             <view class="item-wheather">{{item.cond_txt_d}}<image src="{{weatherIconUrl}}{{item.cond_code_d}}.png" mode="scaleToFill"></image></view>
-             <view>{{item.wind_dir}}{{item.wind_sc}}级</view>
-           </view>
-         </view>
+         <view class="three-title">7天预报</view>
+         <view class="scroll-box">
+           <scroll-view  scroll-x="{{true}}" style="width: 100%">
+             <view class="three-list">
+                <view class="three-item" wx:for="{{threeDayData}}" wx:key="{{index}}">
+                <view>{{item.date}}</view>
+                <view>{{item.tmp_max}}~{{item.tmp_min}}℃</view>
+                <view class="item-wheather">{{item.cond_txt_d}}<image src="{{weatherIconUrl}}{{item.cond_code_d}}.png" mode="scaleToFill"></image></view>
+                <view>{{item.wind_dir}}{{item.wind_sc}}级</view>
+              </view>
+          </view>
+        </scroll-view>
+      </view>
        </view>
        <view class="windy-table">
         <view class="windy-tr">
@@ -56,16 +59,16 @@
             next-margin="24px"
             class="hour-swiper"
           >
-            <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+            <block wx:for="{{nowHourData}}" wx:key="{{index}}" wx:for-item="part">
               <swiper-item class="hour-forcast-item">
                     <view class="windy-tr">
-                        <view class="windy-td" wx:for="{{defaultData.key}}" wx:key="index">
-                          <view class="nowData-td">{{defaultData.val[item]}}</view>
-                          <view>{{nowCityData[item]}}</view>
+                        <view class="windy-td" wx:for="{{defaultHourData.key}}" wx:key="index">
+                          <view class="nowData-td">{{defaultHourData.val[item]}}</view>
+                          <view>{{part[item]}}</view>
                         </view>
                         </view>
                       <view class="hour-forcast-bottom">
-                        2019-05-20 22:00
+                       {{part.time}}
                       </view>
               </swiper-item>
             </block>
@@ -74,7 +77,7 @@
        </view>
        <view class="life-style">
          <view class="life-item" wx:for="{{lifeData}}" wx:key="{{index}}">
-           <view class="life-icon"><image src="../../images/lifestyle_{{item.type}}.png" mode="widthFix"></image></view>
+           <view class="life-icon"><image src="../../images/lifestyle_{{item.type}}.png" mode="scaleToFill"></image></view>
            <view>
              <view class="weather-cozy">舒适度指数 {{item.brf}}</view>
              <view class="weather-descr">{{item.txt}}</view>
