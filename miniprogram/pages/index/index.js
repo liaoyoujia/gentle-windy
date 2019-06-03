@@ -1,6 +1,7 @@
 // miniprogram/pages/index/index.js
 const app = getApp();
 const globalData = app.globalData
+const { img, color } = app.globalData
 import Http from '../../http/index'
 import { meregeData } from '../../util/index'
 const http = new Http()
@@ -10,7 +11,8 @@ Page({
    */
   data: {
     isShowChoose: false,
-    img: 'accomplishment-adventure-clear-sky-585825',
+    img: img || 'accomplishment-adventure-clear-sky-585825',
+    color: color || '#004a89',
     threeDayData: [],
     defaultData: {
       key: ['tmp', 'fl', 'hum', 'pcpn', 'wind_dir', 'wind_deg', 'wind_sc', 'wind_spd', 'vis', 'pres', 'cloud', ''],
@@ -28,6 +30,7 @@ Page({
         cloud: '云量',
       },
     },
+    comments: '我走过山时,山不说话。我走过海时,海不说话。',
     nowArea: '定位中',
     nowCityData: {},
     defaultHourData: {
@@ -58,6 +61,10 @@ Page({
    */
   onLoad: function (options) {
     let that = this
+    wx.setNavigationBarColor({
+      frontColor: '#ffffff',
+      backgroundColor: that.data.color,
+    })
     wx.getLocation({
       success (res) {
         that.getMainWeather(`${res.latitude},${res.longitude}`)
@@ -75,7 +82,8 @@ Page({
   hideChoosePage (data) {
     this.setData({
       isShowChoose: false,
-      img: data.detail.img
+      img: data.detail.img,
+      color: data.detail.deFaultColor
     })
   },
   getMainWeather (location) {
@@ -118,19 +126,22 @@ Page({
       };
     })
   },
+ 
   searchCity (e) {
     if (e.detail.value) {
-      this.changeCity(e.detail.value,this.clearInput)
+      this.changeCity(e.detail.value, this.clearInput)
     }
   },
-  clearInput(){
+  clearInput () {
     this.setData({
-      searchValue:''
+      searchValue: ''
     })
   },
   changeCity (value, fn) {
-    if (value === '520' || value === '521' || value === '520hcy' || value === '521hcy') {
-      
+    if (value === '520' || value === '521' || value === '520hcy' || value === '521hcy' || value === 'hcy') {
+      this.setData({
+        comments: '情不所起,一往而深！'
+      })
     }
     if (value) {
       this.getMainWeather(value)

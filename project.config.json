@@ -12,6 +12,8 @@
 	"appid": "wx23983b05206d1517",
 	"projectname": "weather-small",
 	"libVersion": "2.2.5",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -29,7 +31,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -41,6 +43,13 @@
 					"id": -1,
 					"name": "dasd",
 					"pathName": "pages/das/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "城市",
+					"pathName": "pages/city/index",
 					"scene": null
 				}
 			]

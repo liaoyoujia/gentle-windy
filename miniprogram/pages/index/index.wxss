@@ -223,8 +223,8 @@
 }
 .life-icon image {
   display: block;
-  width: 120rpx;
-  height: 120rpx;
+  width: 100rpx;
+  height: 100rpx;
 }
 .weather-cozy {
   font-size: 32rpx;
@@ -280,4 +280,3 @@ image{
   margin-left: 16rpx;
   font-size: 28rpx;
 }
-

@@ -1,6 +1,0 @@
-/* components/heart/index.wxss */
-.hebeat{
-  position: fixed;
-  top: -200;
-
-}
