@@ -1,4 +1,3 @@
-<!--miniprogram/pages/index/index.wxml-->
 <view wx:if="{{!isShowChoose}}" class="container">
   <image src="../../images/{{img}}.jpg" mode="scaleToFill" class="mainBg"></image>
   <view class="main">
@@ -21,7 +20,7 @@
       </view>
     </view>
     <view class="address">
-      <view class="name">
+      <view class="name" bindtap="goCity">
         <text>{{nowArea}}</text>
         <image src="../../images/down.png" mode="scaleToFill"></image>
       </view>

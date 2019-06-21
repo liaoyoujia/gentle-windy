@@ -24,7 +24,12 @@ const formatDate = (nDate, date) => {
   return date
 }
 
-
+let isEmptyObject = (obj) => {
+  for (let i in obj) {
+    return false
+  }
+  return true
+}
 const meregeData = (arr, params) => {
   let a = []
   arr.forEach((item) => {
@@ -40,4 +45,4 @@ const meregeData = (arr, params) => {
   })
   return a
 }
-export { formatDate, meregeData }
+export { formatDate, meregeData, isEmptyObject }

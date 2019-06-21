@@ -1,0 +1,38 @@
+<view class="container">
+  <view class="city-seach-city">
+    <view class="img-input">
+      <image src="../../images/search_grey.png" mode="widthFix" ></image>
+      <input type="text" placeholder="请输入城市名，快速查询天气信息" value="{{inputValue}}"/>
+    </view>
+    <text bindtap="clearInput">清空</text>
+  </view>
+  <view class="line"></view>
+  <view class="city-main">
+    <view class="city-main-title">猜你想找</view>
+    <view class="city-main-pane">
+      <view class="city-main-item special">
+        定位
+        <image src='../../images/location_s_w.png' mode="widthFix"></image>
+      </view>
+      <view class="city-main-item">北京市</view>
+      <view class="city-main-item">广州市</view>
+    </view>
+    <view class="city-main-pane">
+      <view class="city-main-item">深圳市</view>
+      <view class="city-main-item">上海市</view>
+      <view class="city-main-item">南京市</view>
+    </view>
+    <view class="city-main-pane">
+      <view class="city-main-item">杭州市</view>
+      <view class="city-main-item">武汉市</view>
+      <view class="city-main-item">无锡市</view>
+    </view>
+  </view>
+  <view class="global-city">
+    <view class="global-city-pane" wx:for="{{cityName}}" wx:key="{{index}}">
+      <view class="global-city-pane-title">{{index}}</view>
+      <view class="global-city-pane-city" wx:for="{{item}}" wx:for-index="idx" wx:for-item="itemName" wx:key="idx">
+        {{itemName.name}}</view>
+    </view>
+  </view>
+</view>

@@ -47,9 +47,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 2,
 					"name": "城市",
-					"pathName": "pages/city/index",
+					"pathName": "pages/citychoose/citychoose",
+					"query": "",
 					"scene": null
 				}
 			]

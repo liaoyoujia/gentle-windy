@@ -79,6 +79,11 @@ Page({
       isShowChoose: true
     })
   },
+  goCity () {
+    wx.navigateTo({
+      url: '/pages/citychoose/citychoose',
+    })
+  },
   hideChoosePage (data) {
     this.setData({
       isShowChoose: false,
@@ -126,7 +131,7 @@ Page({
       };
     })
   },
- 
+
   searchCity (e) {
     if (e.detail.value) {
       this.changeCity(e.detail.value, this.clearInput)
@@ -150,5 +155,16 @@ Page({
       this.getLifeData(value)
     }
     fn()
+  },
+  onPullDownRefresh: function () {
+    let that = this
+    wx.getLocation({
+      success (res) {
+        that.getMainWeather(`${res.latitude},${res.longitude}`)
+        that.getThreeDays(`${res.latitude},${res.longitude}`)
+        that.getHourData(`${res.latitude},${res.longitude}`)
+        that.getLifeData(`${res.latitude},${res.longitude}`)
+      }
+    })
   }
 })
