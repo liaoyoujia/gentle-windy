@@ -60,19 +60,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let that = this
-    wx.setNavigationBarColor({
-      frontColor: '#ffffff',
-      backgroundColor: that.data.color,
-    })
-    wx.getLocation({
-      success (res) {
-        that.getMainWeather(`${res.latitude},${res.longitude}`)
-        that.getThreeDays(`${res.latitude},${res.longitude}`)
-        that.getHourData(`${res.latitude},${res.longitude}`)
-        that.getLifeData(`${res.latitude},${res.longitude}`)
-      }
-    })
+    if (options && options.cityName) {
+      this.changeCity(options.cityName, this.clearInput)
+    } else {
+      let that = this
+      wx.setNavigationBarColor({
+        frontColor: '#ffffff',
+        backgroundColor: that.data.color,
+      })
+      wx.getLocation({
+        success (res) {
+          that.getMainWeather(`${res.latitude},${res.longitude}`)
+          that.getThreeDays(`${res.latitude},${res.longitude}`)
+          that.getHourData(`${res.latitude},${res.longitude}`)
+          that.getLifeData(`${res.latitude},${res.longitude}`)
+        }
+      })
+    }
   },
   changeBg () {
     this.setData({
